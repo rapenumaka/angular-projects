@@ -1,0 +1,46 @@
+<p>rooms works!</p>
+<div>
+    <h3> Welcome to {{hotelName}}</h3>
+</div>
+<div *ngIf="hiddenValue">
+hide this
+</div>
+Number of rooms : 
+<div [textContent]="numberOfRooms"></div>
+
+List of rooms available 
+
+<div *ngIf="isAvailable">
+    Rooms are available
+
+    <table>
+        <tr>
+         <th>Index</th>
+         <th>Title</th>
+         <th>Even/Odd</th>
+         <th>Room Number</th>
+         <th>Room Price</th>
+         <th>Room Amenities</th>
+         <th>Check In Time</th>
+         <th>Check Out Time</th>
+         <th>Image</th>
+        </tr>
+        <tr *ngFor="let room of allRoomsProps; let e= even; let i = index">
+            <td>{{i}}</td>
+            <td>{{room.title}}</td>
+            <td>{{e ? "Even": "Odd"}}</td>
+            <td>{{room.roomNumber}}</td>
+            <td>{{room.price}}</td>
+            <td>{{room.amenities}}</td>
+            <td>{{room.checkInDate}}</td>
+            <td>{{room.checkoutDate}}</td>
+            <td><img src={{room.image}}  height=10 width=10/></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="isValid"> Data is valid. </div> 
+<div>
+    <button (click)="somefunction()" >Press</button>
+</div>
+
