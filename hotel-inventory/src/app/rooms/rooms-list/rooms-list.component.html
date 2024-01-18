@@ -1,0 +1,28 @@
+<p>rooms-list works!</p>
+<div>Special {{specials}}</div>
+<table class="table-warning">
+    <tr >
+     <th class="table-light">Index</th>
+     <th class="table-dark">Title</th>
+     <th>Even/Odd</th>
+     <th>Room Number</th>
+     <th>Room Price</th>
+     <th>Room Amenities</th>
+     <th>Check In Time</th>
+     <th>Check Out Time</th>
+     <th>Image</th>
+     <th>Book</th>
+    </tr>
+    <tr *ngFor="let room of roomslist; let e= even; let i = index">
+        <td>{{i}}</td>
+        <td>{{room.title}}</td>
+        <td>{{e ? "Even": "Odd"}}</td>
+        <td>{{room.roomNumber}}</td>
+        <td>{{room.price}}</td>
+        <td>{{room.amenities}}</td>
+        <td>{{room.checkInDate | date}}</td>
+        <td>{{room.checkoutDate | date}}</td>
+        <td><img src={{room.image}}  height=10 width=10/></td>
+        <td><button class="btn btn-primary" (click)="selectRoom(room)">select</button></td>
+    </tr>
+</table>
