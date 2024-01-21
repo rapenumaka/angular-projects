@@ -1,0 +1,35 @@
+<p>person works!</p>
+<app-header></app-header>
+<div class="container">
+    <div class="mb-3">
+        <label>Email:</label>
+        <input type="text" class="form-control" placeholder="Enter email" [(ngModel)] = "enteredEmail">
+    </div>
+    <div class="mb-3">
+        <label>Name:</label>
+        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)] = "enteredName" >
+    </div>
+    <div class="mb-3">
+        <label>Age:</label>
+        <input type="number" class="form-control" placeholder="Enter age" [(ngModel)] = "enteredAge" >
+    </div>
+
+    <button class="btn btn-primary"  (click)="saveinformation()">Save</button>
+</div>
+
+<div class="container mt-3" *ngIf="personList.length >0">
+ <app-person-display [listOfPersons]="personList" (specialPerson) = "selectedPersonFromChild($event)"></app-person-display>
+
+</div>
+
+<div class="container">
+    <div class="mb-3">
+        <label>Salary:</label>
+        <input type="text" class="form-control" placeholder="Enter salary" #enteredSalary>
+    </div>
+    <div class="mb-3">
+        <label>Occupation:</label>
+        <input type="text" class="form-control" placeholder="Enter Occupation" #enteredOccupation >
+    </div>
+    <button class="btn btn-success" (click)="logInformation(enteredSalary,enteredOccupation)">ENTER</button>
+</div>

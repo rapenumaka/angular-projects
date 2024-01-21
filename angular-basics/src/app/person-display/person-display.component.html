@@ -1,0 +1,24 @@
+<p> People List</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Select</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p1 of listOfPersons; index as i ">
+        <td [ngClass]="{'text-success': i%2===0}"><p>{{i+1}}</p></td>
+        <th [ngClass]="{'text-success': i%2===0}"><p>{{p1.getName()}}</p></th>
+        <th [ngClass]="{'text-success': i%2===0}"><p>{{p1.getEmail()}}</p></th>
+        <th [ngClass]="{'text-success': i%2===0}"><p>{{p1.getAge()}}</p></th>
+        <td>
+            <button class="btn btn-success" (click)="selectedPerson(p1)"
+            >Select</button>
+        </td>
+        </tr>
+    </tbody>
+</table>

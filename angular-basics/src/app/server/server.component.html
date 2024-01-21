@@ -1,0 +1,53 @@
+<p>server works!</p>
+
+
+<div >
+    <button class = "btn btn-primary" [disabled]="allowServer">This button will be active after 4secs</button>
+    <button type="button" class="btn">Basic</button>
+<button type="button" class="btn btn-primary" (click)="onServerChange()">Primary</button>
+
+</div>
+
+<div >
+    {{serverTest}}
+</div>
+
+<div>
+    <input type="text" class="form-control" (input)="enteredInput($event)" >
+</div>
+
+<div class="">
+ <p> Example of two way databinding</p>
+ <input type="text" class="form-control" [(ngModel)] = "serverName">
+<!--<p> Server name : {{serverName}}</p>  -->
+<p *ngIf="isServerCreated else noServer">Server name : {{serverName}}</p>
+<ng-template #noServer>
+   <p>No server is created</p>
+</ng-template>
+</div>
+
+<div>
+    <p [innerText]="welcome"> </p>
+    <p>Dont mix property binding and string interpolation</p>
+</div>
+
+<div class="container mt-5">
+    Server with ID = {{serverId}} is currently {{serverStatus}}
+</div>
+
+<div>
+    <p [ngStyle] = "{backgroundColor : getBackgroundColor()}">
+        Server automcatic status set to {{autoStatus}}
+    </p>
+    
+</div>
+
+
+<div *ngFor="let celeb of allSingers; index as i">
+    <p [ngClass]="{
+        'text-sucess': celeb.country === 'USA',
+        'text-danger': celeb.country === 'Canada',
+        'text-info' : celeb.country === 'India'
+    }"> {{i+1}} Artist : {{celeb.artist}}  Country : {{celeb.country}} </p>
+
+</div>
