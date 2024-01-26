@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-basics": {
+    "angular-basics-adv": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-basics",
+            "outputPath": "dist/angular-basics-adv",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-basics:build:production"
+              "browserTarget": "angular-basics-adv:build:production"
             },
             "development": {
-              "buildTarget": "angular-basics:build:development"
+              "browserTarget": "angular-basics-adv:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-basics:build"
+            "browserTarget": "angular-basics-adv:build"
           }
         },
         "test": {
@@ -87,13 +87,13 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-         
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
         }
@@ -101,6 +101,6 @@
     }
   },
   "cli": {
-    "analytics": "ce2b56ce-2f07-465f-a2e1-3d5963c6911a"
+    "analytics": "a21ef7b2-5d44-4164-8f36-bdacb2801946"
   }
 }

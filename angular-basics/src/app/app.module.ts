@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,11 @@ import { PersonComponent } from './person/person.component';
 import { PersonDisplayComponent } from './person-display/person-display.component';
 import { HeaderComponent } from './header/header.component';
 import { PdfPrinterComponent } from './pdf-printer/pdf-printer.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes : Routes = [
+  {path: '', component :PersonComponent}
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { PdfPrinterComponent } from './pdf-printer/pdf-printer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

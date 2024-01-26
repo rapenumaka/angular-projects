@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div id="user-data" 
+        ngModelGroup='usernameEmailGroup'
+        #usernameEmailGroup='ngModelGroup'
+        >
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text"
+                id="username"
+                class="form-control"
+                ngModel
+                name = "username"
+                required
+                #username="ngModel">
+            <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid username</span>   
+            </div>
+            <br>
+            <button class="btn btn-primary" type="button" (click)="suggestUsername()">Suggest a username</button>
+            <br>
+            <div *ngFor="let welcome of suggestions">
+                <button type="btn btn-primary" (click)="someFunction($event)">{{welcome}}</button>
+            </div>
+            {{clickMessage}}
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" 
+                id="email" 
+                class="form-control"
+                ngModel
+                name = "email"
+                required
+                email
+                #email="ngModel">
+                <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+            </div>
+        </div>
+        <p *ngIf="!usernameEmailGroup.valid && usernameEmailGroup.touched">The username and email are not valid</p>
+        <br>
+        <div class="form-group">
+            <label for="secret">Security Questions?</label>
+            <select id="secret" 
+            class="form-control"
+            ngModel
+            name = "secret">
+                <option value="pet">Your first Pet</option>
+                <option value="teacher">Yout first teacher</option>
+                <option value="maider">Your's mother's maiden name</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <textarea
+          id="questionArea"
+          rows="3"
+          class="form-control"
+          name="questionArea"
+          placeholder="Write an answer"
+          [(ngModel)]="answer"
+          required
+          #questionAnswer
+          >
+          </textarea>
+       <!--<span class="help-block" *ngIf="!questionAnswer.valid">Please enter a valid answer</span>--> 
+        </div>
+        <br>
+        <label>Select the Gender</label>
+        <br>
+        <div class="radio" *ngFor="let gender of genders">
+            <label>
+                <input
+                type="radio"
+                name="gender"
+                ngModel
+                [value]="gender">
+                {{gender}}
+            </label>
+        </div>
+
+        <br>
+        <button class="btn btn-primary" type="button" (click) ="autoFillForm()">AutoFill</button> <hr>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+
+    </form>
+</div>
