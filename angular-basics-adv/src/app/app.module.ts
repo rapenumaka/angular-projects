@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HttpCommComponent } from './http-comm/http-comm.component';
 import { HttpClientModule} from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule} from '@angular/common/http';
     UserComponent,
     TdFormComponent,
     ReactiveFormComponent,
-    HttpCommComponent
+    HttpCommComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

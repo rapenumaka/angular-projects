@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HttpCommComponent } from './http-comm/http-comm.component';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     component: HttpCommComponent,
     path: 'connect'
+  },
+  {
+    component: TodoComponent,
+    path: 'todo'
   }
 ];
 

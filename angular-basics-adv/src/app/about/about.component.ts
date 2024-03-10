@@ -49,16 +49,7 @@ const customIntervalObservable = new Observable((observer) =>{
 
 });
 
-this.firstObersSubscription = customIntervalObservable.subscribe(data => {
-  console.log(data);
-}, error =>{
-  console.log(error);
-  alert('Error occured');
-}, 
-() =>{
-  console.log('completed');
-})
-;
+
 
   
 }

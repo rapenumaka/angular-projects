@@ -1,0 +1,65 @@
+<p>todo works!</p>
+<div class="container mt-2">
+
+        <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+            <label title="HEADING"><h5 class="card-title">Heading</h5></label>
+            <br>
+            <input type="text"
+            id="topic"
+            formControlName = "topic"
+            class="form-control"
+            >
+            <span 
+            *ngIf="!todoForm.get('topic')?.valid && todoForm.get('topic')?.touched"
+            class="help-blocker">Topic should be valid and must have min 5 characters</span>
+            </div>
+            <br>
+            <label><h5 class="card-title">Target Date</h5></label>
+            <br>
+            <div class="form-group">
+                <input type="date"
+                id="targetDate"
+                min="2024-01-01"
+                max="2025-01-01"
+                formControlName = "targetDate"
+                class="form-control"
+                >
+            </div>
+            <br>
+            <label><h5 class="card-title">Description</h5></label>
+            <br>
+            <div class="form-group">
+                <textarea id="description"
+                formControlName = "description"
+                rows="5"
+                cols="100"
+                class="form-control">
+            </textarea>
+            </div>
+    
+
+        <br>
+        
+        <button class="btn btn-primary" type="button" (click) = "OnClear()">Clear form</button>
+        &nbsp;
+        <button class="btn btn-primary" type="submit" [disabled]="!todoForm.valid">Submit</button>
+        </form> 
+
+</div>
+<hr>
+<div class="container mt-3"  *ngIf="todoList.length > 0">
+    <div class="row">
+        <ul *ngFor="let todo of todoList; let i = index">
+            <div class="col-sm-4" >
+                <div class="card">
+                    <div [ngStyle]="{'background-color' : todo.isCompleted === true ? 'green' : 'red'}" class="card-body">
+                        <h4 class="card-title">{{todo.topic}}</h4>
+                        <p class="card-text">{{todo.description}}</p>
+                        <button class="btn btn-primary" (click)="moveToCompleted(todo)" type="button">Mark as Complete</button>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>
